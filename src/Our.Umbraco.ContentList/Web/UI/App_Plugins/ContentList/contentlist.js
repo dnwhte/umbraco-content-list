@@ -1,4 +1,4 @@
-﻿angular.module("umbraco").controller("Our.Umbraco.ContentList.Controllers.PropertyEditorController", [
+angular.module("umbraco").controller("Our.Umbraco.ContentList.Controllers.PropertyEditorController", [
 
     "$scope",
     "innerContentService",
@@ -17,6 +17,7 @@
 
         vm.sortableOptions = {
             axis: "y",
+            delay: 150,
             containment: "parent",
             cursor: "move",
             disabled: !vm.sortable,
