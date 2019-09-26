@@ -1,7 +1,7 @@
 ﻿<div class="content-list" ng-controller="Our.Umbraco.ContentList.Controllers.PropertyEditorController as vm">
 
     <div ui-sortable="vm.sortableOptions" ng-model="model.value">
-        <umb-node-preview ng-repeat="item in model.value"
+        <umb-node-preview ng-repeat="item in model.value track by item.key"
                           icon="item.icon"
                           name="item.name"
                           published="vm.published"
