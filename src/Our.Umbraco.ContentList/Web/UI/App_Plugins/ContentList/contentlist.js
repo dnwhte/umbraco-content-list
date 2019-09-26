@@ -25,6 +25,11 @@
             tolerance: "pointer",
             stop: function (e, ui) {
                 _.each($scope.model.value, function (itm, idx) {
+                    if (itm === undefined) {
+                        $scope.model.value.splice(idx, 1); // hacky fix for ui-sortable bug where empty itms are added to array
+                        return;
+                    }
+
                     innerContentService.populateName(itm, idx, $scope.model.config.contentTypes);
                 });
                 setDirty();
