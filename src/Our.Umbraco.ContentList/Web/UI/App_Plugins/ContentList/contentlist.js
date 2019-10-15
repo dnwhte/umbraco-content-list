@@ -82,13 +82,16 @@ angular.module("umbraco").controller("Our.Umbraco.ContentList.Controllers.Proper
         };
 
         function remove($index) {
-            $scope.model.value.splice($index, 1);
+            if (confirm("Are you sure?")) {
 
-            if ($scope.model.config.maxItems === "0" || $scope.model.value.length < $scope.model.config.maxItems) {
-                vm.allowAdd = true;
+                $scope.model.value.splice($index, 1);
+
+                if ($scope.model.config.maxItems === "0" || $scope.model.value.length < $scope.model.config.maxItems) {
+                    vm.allowAdd = true;
+                }
+
+                setDirty();
             }
-
-            setDirty();
         };
 
         function setDirty() {
